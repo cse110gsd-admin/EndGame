@@ -1,4 +1,4 @@
-<h1>Listing events</h1>
+<h1>Lifetime Weight</h1>
 
 <% @test = [] %>
 <% @words = "" %>
@@ -39,6 +39,46 @@
 <div id="events_chart" style="width:560px; height:300px"></div>
 
 
+<h1>Monthly Weight: June</h1>
 
-<br />
+<% @test = [] %>
+<% @words = "" %>
 
+<% @events.find(:all, :order => 'starts_at').each do |event| %>
+  <% unless event.weight.nil? %>
+    <% if event.starts_at.to_date.year.to_s == '2011' %> 
+      <% if event.starts_at.to_date.month.to_s == '6' %>
+        <% @test.concat([[event.starts_at.to_i * 1000, event.weight]]) %>
+      <% end %> 
+    <% end %>
+  <% end %>
+<% end %>
+
+<% @test.each do |info| %>
+  <% @words = @words + "[" + info[0].to_s + ", " + info[1].to_s + "]," %>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "monthly_chart"
+      },
+      title: {
+        text: "Weight over time"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      tooltip: {
+        formatter: function() {
+          return Highcharts.dateFormat("%B %e, %Y", this.x) + ': ' + '<b>' + this.y + '</b>' + "lbs";
+        }
+      },
+      series: [{
+        data: [<%= @words[0..-1] %>] 
+      }]
+    });
+  });
+</script>
+<div id="monthly_chart" style="width:560px; height:300px"></div>
