@@ -2,9 +2,9 @@ class TemplatesController < ApplicationController
   # GET /templates
   # GET /templates.xml
   def index
-    @templates = Template.where(:user_id => current_user.id)
-
-    respond_to do |format|
+     @templates = Template.where(:user_id => User.find_by_name("Crossfit").id).order(:name)
+    @templates = @templates + Template.where(:user_id => current_user.id).order(:name)
+    #@templates = @templates.Order(:name)     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @templates }
     end
