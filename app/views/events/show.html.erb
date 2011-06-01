@@ -10,21 +10,6 @@
 </p>
 
 <p>
-  <b>Starts at:</b>
-  <%= @event.starts_at %>
-</p>
-
-<p>
-  <b>Ends at:</b>
-  <%= @event.ends_at %>
-</p>
-
-<p>
-  <b>All day:</b>
-  <%= @event.all_day %>
-</p>
-
-<p>
   <b>Description:</b>
   <%= @event.description %>
 </p>
@@ -37,9 +22,19 @@
 
 
   <% @workout.exercises.each do |exercise| %>
-    <p><%= exercise.name %><br />
-      <%= exercise.reps %><br />
-      <%= exercise.weight %><br />
+    <p>
+	<% unless exercise.name.nil? %>
+          <b> Exercise: </b>
+          <%= exercise.name %><br />
+	<% end %>
+	<% unless exercise.reps.nil? %>
+	  <b> Reptitions: </b>
+	  <%= exercise.reps %><br />
+	<% end %>
+	<% unless exercise.weight.nil? %>
+	  <b> Weight: </b>
+	  <%= exercise.weight %><br />
+	<% end %>
     </p>
   <% end %>
 
