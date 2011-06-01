@@ -1,5 +1,7 @@
 .container {
-  width: 710px;
+  width: 740px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body 
@@ -10,13 +12,13 @@ body
 }
 
 header {
-  margin: center;
-  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 section {
-  margin-top: 1em;
+  margin-top: 0.5em;
   font-size: 120%;
   padding: 20px;
   background: #fff;
@@ -80,21 +82,6 @@ nav ul li a:hover {
 }
 
 
-/* Sign up button */
-
-a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: 190px;
-  color: #fff;
-  background: #002264;
-  font-size: 150%;
-  font-weight: bold;
-  padding: 20px;
-}
-
 
 /* Round corners */
 
@@ -107,7 +94,7 @@ a.signup_button {
 footer {
   text-align: center;
   margin-top: 10px;
-  width: 710px;
+  width: 740px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -137,4 +124,3 @@ td.sidebar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
-
