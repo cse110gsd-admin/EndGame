@@ -1,0 +1,27 @@
+<h1>Listing exercises</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Reps</th>
+    <th>Weight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exercises.each do |exercise| %>
+  <tr>
+    <td><%= exercise.name %></td>
+    <td><%= exercise.reps %></td>
+    <td><%= exercise.weight %></td>
+    <td><%= button_to 'Show', exercise %></td>
+    <td><%= button_to 'Edit', edit_exercise_path(exercise) %></td>
+    <td><%= button_to 'Destroy', exercise, :confirm => 'Are you sure?', :controller => "exercise", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exercise', new_exercise_path %>

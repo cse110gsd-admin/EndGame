@@ -1,0 +1,40 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :default => 'Workout' %>
+  </div>  
+
+  
+  <div class="field">
+    <%= f.label :starts_at %><br />
+    <!--%= f.datetime_select :starts_at %-->
+    <input id="event_starts_at" name="event[starts_at]" size="30" type="text" value="06/01/2011" /><br />
+  </div>
+  <div class="field">   
+    <%= f.hidden_field :all_day, :default => true %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.text_field :weight %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+  
+<% end %>

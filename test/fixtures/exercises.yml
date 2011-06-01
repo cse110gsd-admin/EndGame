@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  reps: 1
+  weight: 1
+
+two:
+  name: MyString
+  reps: 1
+  weight: 1

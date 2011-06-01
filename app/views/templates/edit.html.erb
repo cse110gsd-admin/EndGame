@@ -1,0 +1,6 @@
+<h1>Editing template</h1>
+
+<%= render 'form' %>
+
+<%= button_to 'Destroy', @template, :confirm => 'Are you sure?', :controller => "template", :method => :delete %>
+<%= link_to 'All templates', templates_path %>

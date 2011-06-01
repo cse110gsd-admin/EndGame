@@ -1,0 +1,28 @@
+<h1>Listing entries</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <% if entry.user_id == current_user.id  %>
+    <tr>
+      <td><%= entry.date %></td>
+      <td><%= entry.user_id %></td>
+      <td><%= link_to 'Show', entry %></td>
+      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+      <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :controller => "entry", :method => :delete %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+<% unless @user.nil? %>
+  <%= link_to 'New Entry', new_entry_path(:user_id => @user.id) %>
+<% end %>

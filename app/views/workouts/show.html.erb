@@ -1,0 +1,32 @@
+
+
+<p>
+  <b>Name:</b>
+  <%= @workout.name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @workout.description %>
+</p>
+
+
+<% @exercises = @workout.exercises %>
+<% @exercises.each do |exercise| %>
+  <p>
+    <% unless exercise.name==""  %>
+    <%= "Exercise:   " %>
+      <%= exercise.name %><br />
+      <% unless exercise.reps=="" %>
+        <%= "Reps/Distance:  " %>
+        <%= exercise.reps %><br />
+      <% end %>
+      <% unless exercise.weight=="" %>
+        <%= "Weight:  "  %>
+        <%= exercise.weight %><br />
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_workout_path(@workout) %>

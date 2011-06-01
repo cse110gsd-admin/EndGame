@@ -1,0 +1,44 @@
+<head>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+</head>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @event.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<% unless @workout.nil? %>
+  <p>
+    <b>Workout:</b>
+    <%= @workout.name %>
+  </p>
+
+
+  <% @workout.exercises.each do |exercise| %>
+    <p>
+	<% unless exercise.name.nil? %>
+          <b> Exercise: </b>
+          <%= exercise.name %><br />
+	<% end %>
+	<% unless exercise.reps.nil? %>
+	  <b> Reps/Distance: </b>
+	  <%= exercise.reps %><br />
+	<% end %>
+	<% unless exercise.weight.nil? %>
+	  <b> Weight: </b>
+	  <%= exercise.weight %><br />
+	<% end %>
+    </p>
+  <% end %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', calendar_index_path %>
