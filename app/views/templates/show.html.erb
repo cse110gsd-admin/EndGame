@@ -1,5 +1,3 @@
-
-
 <p>
   <b>Name:</b>
   <%= @template.name %>
@@ -14,12 +12,19 @@
 <p>
 <% @exercises = @template.exercises %>
 <% @exercises.each do |exercise| %>
-  <p><%= "Exercise:   " %>
-     <%= exercise.name %><br />
-     <%= "Reps:  " %>
-     <%= exercise.reps %><br />
-     <%= "Weight:  "  %>
-     <%= exercise.weight %><br />
+  <p>
+  <% unless exercise.name.nil? %>
+          <b> Exercise: </b>
+          <%= exercise.name %><br />
+  <% end %>
+  <% unless exercise.reps.nil? %>
+    <b> Reps/Distance: </b>
+    <%= exercise.reps %><br />
+  <% end %>
+  <% unless exercise.weight.nil? %>
+    <b> Weight: </b>
+    <%= exercise.weight %><br />
+  <% end %>
   </p>
 <% end %>
 <%= button_to 'Edit this template', edit_template_path(@template) %>

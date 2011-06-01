@@ -23,7 +23,11 @@ p img.top {margin-top:0;}
 blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
 .small {font-size:.9em;}
 .large {font-size:1.1em;}
+<<<<<<< HEAD
 .quiet {color:#000;}
+=======
+.quiet {color:#999;}
+>>>>>>> adc52dcd4f5c55f1f113da4fc6b31b468a40f932
 .hide {display:none;}
 a:link, a:visited {background:transparent;font-weight:700;text-decoration:underline;}
 a:link:after, a:visited:after {content:" (" attr(href) ")";font-size:90%;}

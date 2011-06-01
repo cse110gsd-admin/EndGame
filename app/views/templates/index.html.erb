@@ -14,8 +14,10 @@
     <td><%= template.name %></td>
     <td><%= template.description %></td>
     <td><%= link_to 'View', template_path(template) %></td>
+    <% if template.user_id == current_user.id %>
     <td><%= link_to 'Edit', edit_template_path(template) %></td>
     <!--td><%= link_to 'Destroy', template, :confirm => 'Are you sure?', :controller => "template", :method => :delete %></td-->
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -74,7 +74,11 @@ nav ul li a {
 }
 
 nav ul li a:visited {
+<<<<<<< HEAD
   color: #007;
+=======
+  color: #09c;
+>>>>>>> adc52dcd4f5c55f1f113da4fc6b31b468a40f932
 }
 
 nav ul li a:hover {

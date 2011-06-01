@@ -2,6 +2,7 @@
 <a href="/signin" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('calendar','','/images/cal_fixed_light.png',1)"><img src="/images/cal_fixed_nor.png" name="calendar" width="200" height="150" border="0"></a>
 <a href="/signin" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('summary','','/images/sum_fixed_light.png',1)"><img src="/images/sum_fixed_nor.png" name="summary" width="200" height="150" border="0"></a>
 <a href="/signin" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('info','','/images/info_fixed_light.png',1)"><img src="/images/info_fixed_nor.png" name="info" width="200" height="150" border="0"></a>
+
 <% else %>
 <p align="middle">
   Welcome, <%= User.find(current_user.id).name %>!

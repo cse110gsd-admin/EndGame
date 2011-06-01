@@ -4181,6 +4181,7 @@ Started GET "/events?start=1304233200&end=1307862000&_=1306865704123" for 127.0.
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
   [1m[36mEvent Load (0.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."user_id" = 1[0m
 Completed 200 OK in 94ms (Views: 67.3ms | ActiveRecord: 0.7ms)
+<<<<<<< HEAD
 DEPRECATION WARNING: You are using the old router DSL which will be removed in Rails 3.1. Please check how to update your routes file at: http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/. (called from <top (required)> at /Users/azazelahh/Projects/EndGame/config/routes.rb:1)
   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
  FROM sqlite_master
@@ -5689,3 +5690,5 @@ Rendered layouts/_header.html.erb (1.2ms)
 Rendered layouts/_footer.html.erb (0.9ms)
 Rendered pages/home.html.erb within layouts/application (48.8ms)
 Completed 200 OK in 55ms (Views: 54.5ms | ActiveRecord: 0.2ms)
+=======
+>>>>>>> adc52dcd4f5c55f1f113da4fc6b31b468a40f932
