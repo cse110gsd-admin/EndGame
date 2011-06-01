@@ -1,0 +1,20 @@
+
+
+<p>
+  <b>Name:</b>
+  <%= @exercise.name %>
+</p>
+
+<p>
+  <b>Reps:</b>
+  <%= @exercise.reps %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @exercise.weight %>
+</p>
+
+
+<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<%= link_to 'Back', exercises_path %>

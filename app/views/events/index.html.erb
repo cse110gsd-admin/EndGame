@@ -1,0 +1,46 @@
+<h1>Listing events</h1>
+
+<% @test = [] %>
+<% @words = "" %>
+
+<% @events.find(:all, :order => 'starts_at').each do |event| %>
+  <% unless event.weight.nil? %>
+    <% @test.concat([[event.starts_at.to_i * 1000, event.weight]]) %>
+  <% end %>
+<% end %>
+
+<% @test.each do |info| %>
+  <% @words = @words + "[" + info[0].to_s + ", " + info[1].to_s + "]," %>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "events_chart"
+      },
+      title: {
+        text: "Weight over time"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      tooltip: {
+        formatter: function() {
+          return Highcharts.dateFormat("%B %e, %Y", this.x) + ': ' + '<b>' + this.y + '</b>' + "lbs";
+        }
+      },
+      series: [{
+        data: [<%= @words[0..-1] %>] 
+      }]
+    });
+  });
+</script>
+<div id="events_chart" style="width:560px; height:300px"></div>
+
+
+
+<br />
+<%= link_to 'view calendar', calendar_index_path %>
+<br/>
+<%= link_to 'New Event', new_event_path %>

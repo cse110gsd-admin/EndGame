@@ -1,0 +1,5 @@
+class Workout < ActiveRecord::Base
+  has_many   :exercises, :as => :exerciseable, :dependent => :destroy
+  accepts_nested_attributes_for :exercise
+  belongs_to :entry
+end

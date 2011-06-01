@@ -1,0 +1,27 @@
+
+
+<p>
+  <b>Name:</b>
+  <%= @template.name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @template.description %>
+</p>
+
+
+<p>
+<% @exercises = @template.exercises %>
+<% @exercises.each do |exercise| %>
+  <p><%= "Exercise:   " %>
+     <%= exercise.name %><br />
+     <%= "Reps:  " %>
+     <%= exercise.reps %><br />
+     <%= "Weight:  "  %>
+     <%= exercise.weight %><br />
+  </p>
+<% end %>
+<%= button_to 'Edit this template', edit_template_path(@template) %>
+</p>
+<%= link_to 'Back to all templates', templates_path %>

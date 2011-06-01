@@ -1,0 +1,49 @@
+<head>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+</head>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @event.title %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%= @event.starts_at %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @event.ends_at %>
+</p>
+
+<p>
+  <b>All day:</b>
+  <%= @event.all_day %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<% unless @workout.nil? %>
+  <p>
+    <b>Workout:</b>
+    <%= @workout.name %>
+  </p>
+
+
+  <% @workout.exercises.each do |exercise| %>
+    <p><%= exercise.name %><br />
+      <%= exercise.reps %><br />
+      <%= exercise.weight %><br />
+    </p>
+  <% end %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', calendar_index_path %>

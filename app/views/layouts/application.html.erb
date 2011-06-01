@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+<head>
+  <title>Xlogger</title>
+  <%= stylesheet_link_tag "fullcalendar.css" %>
+  <%= stylesheet_link_tag "application.css" %>
+  <%= stylesheet_link_tag "jquery-ui-1.8.13.custom.css" %>
+  <%= stylesheet_link_tag "thickbox.css" %>
+  
+  <%= javascript_include_tag "jquery.js" %>
+  <%= javascript_include_tag 'jquery', 'nested_form' %>
+  <%= javascript_include_tag "jquery.rest.js" %>
+  <%= javascript_include_tag "rails.js" %>
+  <%= javascript_include_tag "application_jquery.js" %>
+  <%= javascript_include_tag "highcharts.js" %>
+  <%= javascript_include_tag "thickbox.js" %>
+
+  
+  <!-- these are needed for the calendar. -->
+  <%= javascript_include_tag "jquery-ui-1.8.11.custom.min.js" %>
+  <%= javascript_include_tag "fullcalendar.js" %>
+  <%= javascript_include_tag "calendar.js" %>
+  
+  <!-- dont include 1.5.1 it breaks calendar-->
+  <!--%= javascript_include_tag "jquery-1.5.1.min.js"%-->
+  <%= javascript_include_tag "jquery-ui-1.8.13.custom.min.js"%>
+
+  
+  <%= csrf_meta_tag %>  
+  
+  <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+  
+  <%= render 'layouts/stylesheets' %>
+  
+  <script type="text/javascript">
+			$(function(){
+
+				// Accordion
+				$("#accordion").accordion({ header: "h3" });
+	
+				// Tabs
+				$('#tabs').tabs();
+	
+
+				// Dialog			
+				$('#dialog').dialog({
+					autoOpen: false,
+					width: 600,
+					buttons: {
+						"Ok": function() { 
+							$(this).dialog("close"); 
+						}, 
+						"Cancel": function() { 
+							$(this).dialog("close"); 
+						} 
+					}
+				});
+				
+				// Dialog Link
+				$('#dialog_link').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});
+
+				
+				
+				// Slider
+				$('#slider').slider({
+					range: true,
+					values: [17, 67]
+				});
+				
+				// Progressbar
+				$("#progressbar").progressbar({
+					value: 20 
+				});
+				
+				//hover states on the static widgets
+				$('#dialog_link, ul#icons li').hover(
+					function() { $(this).addClass('ui-state-hover'); }, 
+					function() { $(this).removeClass('ui-state-hover'); }
+				);
+				
+			});
+		</script>
+</head>
+  <body>  
+  
+    <div class="container">
+      <%= render 'layouts/header' %>
+      <section class="round">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </section>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>
