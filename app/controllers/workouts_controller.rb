@@ -26,9 +26,9 @@ class WorkoutsController < ApplicationController
   def new
     @workout = Workout.new
     # fetches all the crossfit templates ordered by name
-    #@templates = Template.where(:user_id => 
-    #  User.find_by_name("crossfit").id).order(:name)
-	  @templates = Template.where(:user_id => current_user.id).order(:name) 
+    @templates = Template.where(:user_id => User.find_by_name("Crossfit").id).order(:name)
+    @templates = @templates + Template.where(:user_id => current_user.id).order(:name)
+    #@templates = @templates.Order(:name)  
     @workout.event_id = params[:event_id]
 
     respond_to do |format|
