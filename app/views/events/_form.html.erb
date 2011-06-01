@@ -23,7 +23,7 @@
     <%= f.text_field :starts_at %><br />
   </div>
   <div class="field">   
-    <!--%= f.hidden_field :ends_at, :default => 1.minutes.from_now %-->
+    <input id="event_starts_at" name="event[starts_at]" size="30" type="text" value="06/01/2011" /><br />
   </div>
   <div class="field">   
     <%= f.hidden_field :all_day, :default => true %>

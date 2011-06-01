@@ -32,6 +32,7 @@ function MM_swapImage() { //v3.0
       <li><a href="/">Home</a></li> 
       <li><a href="http://www.youtube.com/user/CrossFitHQ">Videos</a></li>
 	  <% if signed_in? %>
+      <li><%= link_to "Calendar", calendar_index_path %></li>
       <li><a href="/templates">Named Workouts</a></li> 
       <li><%= link_to "Account Management", edit_user_path(current_user) %></li> 
       <li><a href="/signout" data-method="delete" rel="nofollow">Sign out</a></li>
